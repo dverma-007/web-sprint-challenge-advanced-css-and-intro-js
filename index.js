@@ -207,20 +207,18 @@ Practice accessing data above by console.log-ing following items:
 (no functions needed) */
 
 //(1) Name of the first artist (0th index) in the array
-console.log(artists[0]);
+console.log(artists[0].name);
 
 
 //(2) Bio of the third artist (2nd index) in the array 
-console.log(artists[2].bio)
+console.log(artists[2].bio);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Fix this issue and console.log() to check your work. */
-artists[8].name = { 'Vincent Van Gogh' };
+artists[8].name = ('Vincent Van Gogh');
 console.log(artists[8]);
-
-
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 Use getArtistByIndex to do the following:
@@ -232,7 +230,7 @@ Example, if getArtistByIndex is invoked with the artists array and the number 0,
 
 function getArtistByIndex(array, indexNum) {
     /*Your Code Here*/
-    return `the artist at index ${indexNum} is ${array[indexNum]} `
+    return `the artist at index ${indexNum} is ${array[indexNum].name}`
 }
 console.log(getArtistByIndex(artists, 0));
 
@@ -246,84 +244,105 @@ Example born in 1901 and died in 1959 - included -- born in 1889 and died in 192
 If correct, the function should return ["Salvador Dali", "Frida Kahlo"]*/
 // Hint - Look up the .split() method
 
+const newArray = [];
+let birthYears = [];
+
 function get20s(array) {
     /*Your Code Here*/
-    const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        if (array[i].years > 19000 {
-                newArray.slice[i];
-            }
+        birthYears = array[i].years.split('-');
+        if (birthYears[i] >= 1900 && birthYears[i] < 2000) {
+            newArray.push(array[i].name);
+        } else {}
+    }
+    return newArray;
+}
+console.log(newArray);
+
+
+/* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
+Use removeArtist to do the following:
+1. Receive an array
+2. Receive a number which is the desired index in the array
+3. The function should remove an artist from the array at the index
+4. Return the length of the remaining dataset.
+
+For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
+
+function removeArtist(array, indexNum) {
+    /*Your Code Here*/
+    array.splice(indexNum, 1);
+    return array.length;
+}
+console.log(removeArtist(artists, 0));
+
+/* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
+Use addArtist to do the following: 
+1. Receive an array
+2. Add this object of information to the end of the array
+  { 
+    id: 20,
+    name: Your Name Here, 
+    years: Your Birth Year - current day,
+    genre: Web Design, 
+    nationality: Your Nationality Here
+    bio: Add 1-2 sentences (or use lorem ipsum)
+  }  
+3. Return the resulting array
+
+Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
+
+function addArtist(array) {
+    /*Your Code Here*/
+    array.push({
+        'id': 20,
+        'name': 'Deepak Verma',
+        'years': '1967 - current day',
+        'genre': 'Web Design',
+        'nationality': 'Indian',
+        'bio': 'First generation Indian American living in Scottsdale, AZ.  Real estate broker for 16 years but been part of 3 tech start-up ventures but always on sales, marketing or operations.  Wanting to improve my "technical experience" by learning programming.  I have a few software ideas for real estate and also looking to startup coding classes for lower socio-economic kids in Phoenix metro'
+    })
+    return array;
+}
+console.log(addArtist(artists));
+
+
+/* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+Use lotsOfArt to do the following: 
+1. Receive an array 
+2. Return an array with names of artists in the received array who painted more than 100 paintings.
+
+For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
+
+function lotsOfArt(array) {
+    /*Your Code Here*/
+    let hundArtists = [];
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].paintings > 100) {
+            hundArtists.push(array[i].name);
         }
-        return newArray;
     }
-    console.log(get20s(artists()));
+    return hundArtists;
+}
+console.log(lotsOfArt(artists));
+
+
+/* ***** END OF TASKS ***** */
 
 
 
-    /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
-    Use removeArtist to do the following:
-    1. Receive an array
-    2. Receive a number which is the desired index in the array
-    3. The function should remove an artist from the array at the index
-    4. Return the length of the remaining dataset.
-
-    For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
-
-    function removeArtist( /*Your Code Here*/ ) {
-        /*Your Code Here*/
-    }
-
-
-    /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
-    Use addArtist to do the following: 
-    1. Receive an array
-    2. Add this object of information to the end of the array
-      { 
-        id: 20,
-        name: Your Name Here, 
-        years: Your Birth Year - current day,
-        genre: Web Design, 
-        nationality: Your Nationality Here
-        bio: Add 1-2 sentences (or use lorem ipsum)
-      }  
-    3. Return the resulting array
-
-    Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
-
-    function addArtist( /*Your Code Here*/ ) {
-        /*Your Code Here*/
-    }
-
-
-
-    /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
-    Use lotsOfArt to do the following: 
-    1. Receive an array 
-    2. Return an array with names of artists in the received array who painted more than 100 paintings.
-
-    For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ... "Albrecht Dürer"]*/
-
-    function lotsOfArt( /*Your Code Here*/ ) {
-        /*Your Code Here*/
-    }
-
-
-    /* ***** END OF TASKS ***** */
-
-
-
-    /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑*/
-    function foo() {
-        console.log('its working');
-        return 'bar';
-    }
-    foo();
-    /*Don't touch the code after this line! */
-    module.exports = {
-        foo,
-        getArtistByIndex,
-        get20s,
-        removeArtist,
-        addArtist,
-        lotsOfArt
-    }
+/* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑*/
+function foo() {
+    console.log('its working');
+    return 'bar';
+}
+foo();
+/*Don't touch the code after this line! */
+module.exports = {
+    foo,
+    getArtistByIndex,
+    get20s,
+    removeArtist,
+    addArtist,
+    lotsOfArt
+}
